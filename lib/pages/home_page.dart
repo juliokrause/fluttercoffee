@@ -104,7 +104,12 @@ class HomePage extends StatelessWidget {
                         onPressed: () {},
                         icon: CircleAvatar(
                             radius: 25,
-                            child: Image.asset('images/facebook.png')))
+                            child: Image.asset('images/facebook.png'))),
+                            IconButton(
+                        onPressed: () {},
+                        icon: CircleAvatar(
+                            radius: 25,
+                            child: Image.asset('images/bestein.png'))),
                   ],
                 )
               ],
