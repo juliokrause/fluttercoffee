@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_coffee/pages/login_page.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton(
@@ -27,7 +26,7 @@ class CustomButton extends StatelessWidget {
         borderRadius: const BorderRadius.all(Radius.circular(16)),
         onTap: () {
         
-          print("tapped");
+          //print("tapped");
           Navigator.push(context, MaterialPageRoute(builder: (context) {
             return path;
           },));

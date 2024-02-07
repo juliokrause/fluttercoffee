@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "331109205796",
+    "project_id": "fir-coffee-21c40",
+    "storage_bucket": "fir-coffee-21c40.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:331109205796:android:e64abb4506d6ca8fb115b1",
+        "android_client_info": {
+          "package_name": "com.juliokrause.flutter_coffee"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHIpoiyWbCPZl_3eD86KkqLMU_L_ENOxQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

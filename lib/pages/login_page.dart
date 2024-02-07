@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_coffee/pages/home_page.dart';
 import 'package:flutter_coffee/widget/custom_button.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -67,6 +66,9 @@ class LoginPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: TextFormField(
+                    obscureText: true,
+                    enableSuggestions: false,
+                    autocorrect: false,
                     style: const TextStyle(
                       fontSize: 20,
                     ),
@@ -85,8 +87,11 @@ class LoginPage extends StatelessWidget {
                         )),
                   ),
                 ),
-                const SizedBox(height:20), 
-                 CustomButton(buttonText: 'Loginz', path: const HomePage(), btncolor: Colors.yellow.shade900),
+                const SizedBox(height: 20),
+                CustomButton(
+                    buttonText: 'Login',
+                    path: const HomePage(),
+                    btncolor: Colors.yellow.shade900),
               ],
             ),
           ),
