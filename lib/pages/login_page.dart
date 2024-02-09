@@ -1,9 +1,77 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_coffee/auth.dart';
 import 'package:flutter_coffee/pages/home_page.dart';
 import 'package:flutter_coffee/widget/custom_button.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String? errorMessage = '';
+
+  bool isLogin = true;
+
+  final TextEditingController _controllerEmail = TextEditingController();
+
+  final TextEditingController _controllerPassword = TextEditingController();
+
+  Future<void> signInWithEmailAndPassword() async {
+    try {
+      await Auth().signInWithEmailAndPassword(
+          email: _controllerEmail.text, password: _controllerPassword.text);
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+  }
+
+  Future<void> createUserWithEmailAndPassword() async {
+    try {
+      await Auth().createUserWithEmailAndPassword(
+          email: _controllerEmail.text, password: _controllerPassword.text);
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+  }
+
+  Widget _entryField(String title, TextEditingController controller, bool isPassword) {
+    return TextFormField(
+      controller: controller,
+      obscureText: isPassword,
+      enableSuggestions: false,
+      autocorrect: false,
+      style: const TextStyle(
+        fontSize: 20,
+      ),
+      decoration: InputDecoration(
+          border: const UnderlineInputBorder(),
+          filled: false,
+          labelText: title,
+          labelStyle: const TextStyle(
+            fontSize: 20,
+          ),
+          prefixIcon: const Padding(
+            padding: EdgeInsets.only(bottom: 2),
+            child: Icon(
+              Icons.lock,
+            ),
+          )),
+    );
+  }
+
+  Widget _errorMessage() {
+    return Text(errorMessage == '' ? '' : 'Hum ? $errorMessage');
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -44,48 +112,11 @@ class LoginPage extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: TextFormField(
-                    style: const TextStyle(
-                      fontSize: 20,
-                    ),
-                    decoration: const InputDecoration(
-                        border: UnderlineInputBorder(),
-                        filled: false,
-                        labelText: 'Enter your username',
-                        labelStyle: TextStyle(
-                          fontSize: 20,
-                        ),
-                        prefixIcon: Padding(
-                          padding: EdgeInsets.only(bottom: 2),
-                          child: Icon(
-                            Icons.person,
-                          ),
-                        )),
-                  ),
+                  child: _entryField('Enter your username', _controllerEmail, false)
                 ),
-                Padding(
+                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: TextFormField(
-                    obscureText: true,
-                    enableSuggestions: false,
-                    autocorrect: false,
-                    style: const TextStyle(
-                      fontSize: 20,
-                    ),
-                    decoration: const InputDecoration(
-                        border: UnderlineInputBorder(),
-                        filled: false,
-                        labelText: 'Enter your password',
-                        labelStyle: TextStyle(
-                          fontSize: 20,
-                        ),
-                        prefixIcon: Padding(
-                          padding: EdgeInsets.only(bottom: 2),
-                          child: Icon(
-                            Icons.lock,
-                          ),
-                        )),
-                  ),
+                  child: _entryField('Enter your password', _controllerPassword, true),
                 ),
                 const SizedBox(height: 20),
                 CustomButton(

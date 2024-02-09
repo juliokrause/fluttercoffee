@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBIJ7xY1trQHfb7_Gxjq_kH1qO3v0wDsiw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>331109205796</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.juliokrause.flutterCoffee</string>
+	<key>PROJECT_ID</key>
+	<string>fir-coffee-21c40</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fir-coffee-21c40.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:331109205796:ios:c058d6d252f6b619b115b1</string>
+</dict>
+</plist>
