@@ -8,6 +8,8 @@
 .buildlog/
 .history
 .svn/
+.firebase.exe
+.firebase
 migrate_working_dir/
 
 # IntelliJ related
