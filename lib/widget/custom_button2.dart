@@ -5,7 +5,6 @@ class CustomButton2 extends StatefulWidget {
       {super.key,
       required this.buttonText,
       this.isOutlined = false,
-   
       required this.btncolor,
       this.width = 280});
 
@@ -19,25 +18,26 @@ class CustomButton2 extends StatefulWidget {
 }
 
 class _CustomButton2State extends State<CustomButton2> {
+  Color textColor = Colors.brown.shade500;
+
   @override
   Widget build(BuildContext context) {
-    Color textColor = Colors.red;
     return Material(
-      animationDuration: const Duration(seconds :2),
+      animationDuration: const Duration(seconds: 2),
       borderRadius: BorderRadius.circular(30),
       type: MaterialType.transparency,
       elevation: 9,
       child: InkWell(
-        highlightColor: Colors.redAccent,
+        highlightColor: textColor,
         borderRadius: const BorderRadius.all(Radius.circular(16)),
         onTap: () {
-        
           //print("tapped");
 
           setState(() {
-            textColor = Colors.brown.shade600;
+            textColor == Colors.brown.shade500
+                ? textColor = Colors.black87
+                : textColor = Colors.brown.shade500;
           });
-         
         },
         child: Container(
           width: widget.width,
@@ -50,8 +50,7 @@ class _CustomButton2State extends State<CustomButton2> {
           child: Center(
             child: Text(
               widget.buttonText,
-              style:  TextStyle(
-                
+              style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
                 color: textColor,
