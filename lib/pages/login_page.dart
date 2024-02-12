@@ -1,8 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_coffee/auth.dart';
-import 'package:flutter_coffee/pages/home_page.dart';
-import 'package:flutter_coffee/widget/custom_button.dart';
 import 'package:flutter_coffee/widget/custom_button2.dart';
 
 class LoginPage extends StatefulWidget {
