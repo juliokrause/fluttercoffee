@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
+import 'package:flutter_coffee/secrets.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -54,7 +55,7 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAHIpoiyWbCPZl_3eD86KkqLMU_L_ENOxQ',
+    apiKey: apiKeyGeneral,
     appId: '1:331109205796:android:e64abb4506d6ca8fb115b1',
     messagingSenderId: '331109205796',
     projectId: 'fir-coffee-21c40',
