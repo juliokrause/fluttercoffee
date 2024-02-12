@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_coffee/auth.dart';
 import 'package:flutter_coffee/pages/home_page.dart';
 import 'package:flutter_coffee/widget/custom_button.dart';
+import 'package:flutter_coffee/widget/custom_button2.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -119,9 +120,8 @@ class _LoginPageState extends State<LoginPage> {
                   child: _entryField('Enter your password', _controllerPassword, true),
                 ),
                 const SizedBox(height: 20),
-                CustomButton(
+                CustomButton2(
                     buttonText: 'Login',
-                    path: const HomePage(),
                     btncolor: Colors.yellow.shade900),
               ],
             ),
