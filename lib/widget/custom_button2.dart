@@ -18,7 +18,7 @@ class CustomButton2 extends StatefulWidget {
 }
 
 class _CustomButton2State extends State<CustomButton2> {
-  Color textColor = Colors.brown.shade500;
+  Color textColor = Colors.brown.shade700;
 
   @override
   Widget build(BuildContext context) {
@@ -27,34 +27,21 @@ class _CustomButton2State extends State<CustomButton2> {
       borderRadius: BorderRadius.circular(30),
       type: MaterialType.transparency,
       elevation: 9,
-      child: InkWell(
-        highlightColor: textColor,
-        borderRadius: const BorderRadius.all(Radius.circular(16)),
-        onTap: () {
-          //print("tapped");
-
-          setState(() {
-            textColor == Colors.brown.shade500
-                ? textColor = Colors.black87
-                : textColor = Colors.brown.shade500;
-          });
-        },
-        child: Container(
-          width: widget.width,
-          padding: const EdgeInsets.all(13),
-          decoration: BoxDecoration(
-            color: widget.isOutlined ? Colors.brown : widget.btncolor,
-            border: Border.all(color: widget.btncolor, width: 2.5),
-            borderRadius: BorderRadius.circular(30),
-          ),
-          child: Center(
-            child: Text(
-              widget.buttonText,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-                color: textColor,
-              ),
+      child: Container(
+        width: widget.width,
+        padding: const EdgeInsets.all(13),
+        decoration: BoxDecoration(
+          color: widget.isOutlined ? Colors.brown : widget.btncolor,
+          border: Border.all(color: widget.btncolor, width: 2.5),
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: Center(
+          child: Text(
+            widget.buttonText,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: textColor,
             ),
           ),
         ),

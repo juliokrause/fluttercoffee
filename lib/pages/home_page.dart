@@ -10,10 +10,10 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Color.fromARGB(235,221,255,255), Color.fromARGB(235,221,255,255)],
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft)),
+            gradient: LinearGradient(colors: [
+          Color.fromARGB(235, 221, 255, 255),
+          Color.fromARGB(235, 221, 255, 255)
+        ], begin: Alignment.topRight, end: Alignment.bottomLeft)),
         child: Column(
           children: [
             const Padding(
@@ -87,7 +87,7 @@ class HomePage extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 130),  
+                    const SizedBox(height: 130),
                     IconButton(
                         onPressed: () {},
                         icon: CircleAvatar(
@@ -105,7 +105,7 @@ class HomePage extends StatelessWidget {
                         icon: CircleAvatar(
                             radius: 25,
                             child: Image.asset('images/facebook.png'))),
-                            IconButton(
+                    IconButton(
                         onPressed: () {},
                         icon: CircleAvatar(
                             radius: 25,

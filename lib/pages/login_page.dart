@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_coffee/auth.dart';
+import 'package:flutter_coffee/pages/main_page.dart';
 import 'package:flutter_coffee/widget/custom_button2.dart';
 
 class LoginPage extends StatefulWidget {
@@ -23,6 +24,8 @@ class _LoginPageState extends State<LoginPage> {
     try {
       await Auth().signInWithEmailAndPassword(
           email: _controllerEmail.text, password: _controllerPassword.text);
+
+      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessage = e.message;
@@ -41,7 +44,8 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  Widget _entryField(String title, TextEditingController controller, bool isPassword) {
+  Widget _entryField(String title, TextEditingController controller,
+      bool isPassword, IconData theIcon) {
     return TextFormField(
       controller: controller,
       obscureText: isPassword,
@@ -57,10 +61,10 @@ class _LoginPageState extends State<LoginPage> {
           labelStyle: const TextStyle(
             fontSize: 20,
           ),
-          prefixIcon: const Padding(
-            padding: EdgeInsets.only(bottom: 2),
+          prefixIcon: Padding(
+            padding: const EdgeInsets.only(bottom: 2),
             child: Icon(
-              Icons.lock,
+              theIcon,
             ),
           )),
     );
@@ -69,8 +73,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget _errorMessage() {
     return Text(errorMessage == '' ? '' : 'Hum ? $errorMessage');
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -110,17 +112,26 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40),
+                    child: _entryField('Enter your email', _controllerEmail,
+                        false, Icons.person)),
+                Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: _entryField('Enter your username', _controllerEmail, false)
-                ),
-                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                  child: _entryField('Enter your password', _controllerPassword, true),
+                  child: _entryField('Enter your password', _controllerPassword,
+                      true, Icons.lock),
                 ),
                 const SizedBox(height: 20),
-                CustomButton2(
-                    buttonText: 'Login',
-                    btncolor: Colors.yellow.shade900),
+                InkWell(
+                  borderRadius: const BorderRadius.all(Radius.circular(16)),
+                  highlightColor: Colors.redAccent,
+                  onTap: () {
+                    setState(() {
+                      signInWithEmailAndPassword();
+                    });
+                  },
+                  child: CustomButton2(
+                      buttonText: 'Login', btncolor: Colors.yellow.shade900),
+                ),
               ],
             ),
           ),
