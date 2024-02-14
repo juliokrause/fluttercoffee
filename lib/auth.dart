@@ -1,6 +1,5 @@
 import "package:firebase_auth/firebase_auth.dart";
-import "package:flutter/widgets.dart";
-import "package:flutter_coffee/pages/main_page.dart";
+
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

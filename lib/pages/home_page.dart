@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_coffee/pages/login_page.dart';
+import 'package:flutter_coffee/pages/register_page.dart';
 import 'package:flutter_coffee/widget/custom_button.dart';
 
 class HomePage extends StatelessWidget {
@@ -81,7 +82,7 @@ class HomePage extends StatelessWidget {
                   child: CustomButton(
                     buttonText: 'Register',
                     btncolor: Colors.orange.shade700,
-                    path: const HomePage(),
+                    path:  RegisterPage(),
                   ),
                 ),
                 Row(
