@@ -69,10 +69,10 @@ class _LoginPageState extends State<LoginPage> {
                     Padding(
                       padding: const EdgeInsets.all(30.0),
                       child: Transform.rotate(
-                        angle: 0.50,
+                        angle: -0.453,
                         child: Image.asset(
                           'images/barista.png',
-                          scale: 1.80,
+                          scale: 2.4,
                         ),
                       ),
                     )

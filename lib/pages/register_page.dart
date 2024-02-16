@@ -91,7 +91,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 padding: const EdgeInsets.all(10.0),
                 child: Image.asset(
                   'images/icons8-coffe-machine-96.png',
-                  scale: 2.9,
+                  scale: 2.0,
                 ),
               ),
               const SizedBox(height: 10),
