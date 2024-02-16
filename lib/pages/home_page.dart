@@ -82,7 +82,7 @@ class HomePage extends StatelessWidget {
                   child: CustomButton(
                     buttonText: 'Register',
                     btncolor: Colors.orange.shade700,
-                    path:  RegisterPage(),
+                    path: const RegisterPage(),
                   ),
                 ),
                 Row(
@@ -106,11 +106,6 @@ class HomePage extends StatelessWidget {
                         icon: CircleAvatar(
                             radius: 25,
                             child: Image.asset('images/facebook.png'))),
-                    IconButton(
-                        onPressed: () {},
-                        icon: CircleAvatar(
-                            radius: 25,
-                            child: Image.asset('images/bestein.png'))),
                   ],
                 )
               ],

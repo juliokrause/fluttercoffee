@@ -50,23 +50,6 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  Future<void> createUserWithEmailAndPassword() async {
-    try {
-      await Auth().createUserWithEmailAndPassword(
-          email: _controllerEmail.text, password: _controllerPassword.text);
-    } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
-    }
-  }
-
-  
-
-  Widget _errorMessage() {
-    return Text(errorMessage == '' ? '' : 'Hum ? $errorMessage');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,12 +57,8 @@ class _LoginPageState extends State<LoginPage> {
         title: const Text('Login'),
       ),
       body: SingleChildScrollView(
-        physics: const NeverScrollableScrollPhysics(),
         child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: MediaQuery.of(context).size.height,
-            minWidth: MediaQuery.of(context).size.width,
-          ),
+          constraints: const BoxConstraints(),
           child: IntrinsicHeight(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -88,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: const EdgeInsets.all(30.0),
                       child: Transform.rotate(
                         angle: 0.50,
                         child: Image.asset(
