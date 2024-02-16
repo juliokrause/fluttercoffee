@@ -1,8 +1,7 @@
 # flutter_coffee
 
-This is my Flutter project about Coffee deals. The purpose of this project is to put into practice most of my knowledge about this framework.
-
-I'm using Google's Firebase to do the user authentication and I'm storing information within Realtime database.
+This is my Flutter project about coffee deals. The purpose of this project is to put into practice most of my knowledge about this framework.
+Back end is purely Dart so far. I'm using Google's Firebase to do the user authentication and I'm storing information within its Realtime database. 
 
 ## Some pictures
 
