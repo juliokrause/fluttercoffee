@@ -6,7 +6,8 @@ I'm using Google's firebase to do the user authentication and I'm storing inform
 
 ## Some pictures
 
-![image](https://github.com/juliokrause/fluttercoffee/assets/63822446/078e9867-90a9-47a1-af15-d17d77ae3b38)
+![image](https://github.com/juliokrause/fluttercoffee/assets/63822446/667dcd15-2847-4b92-9419-54aac24c8a39)
+
 
 
 
