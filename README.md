@@ -1,17 +1,12 @@
 # flutter_coffee
 
-A new Flutter project.
+This is my Flutter project about coffee deals. The purpose of this project is to put into practice most of my knowledge about this framework.
+Back end is purely Dart so far. I'm using Google's Firebase to do the user authentication and I'm storing information within its Realtime database. 
 
-## Getting Started
+## Some pictures
 
-This project is a starting point for a Flutter application.
+![image](https://github.com/juliokrause/fluttercoffee/assets/63822446/667dcd15-2847-4b92-9419-54aac24c8a39)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# fluttercoffee
+
