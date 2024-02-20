@@ -4,7 +4,7 @@ Widget mainMenu()  {
 
 return const AlertDialog(
     title: Text("AlertDialog"),
-    content: Text("Would you like to continue learning how to use Flutter alerts?"),
+    content: Text(".."),
     actions: [
       
     ],

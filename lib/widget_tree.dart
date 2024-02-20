@@ -18,7 +18,7 @@ class _WidgetTreeState extends State<WidgetTree> {
       builder: (context, snapshot) {
        
         if (snapshot.hasData) {
-          return MainPage();
+          return const MainPage();
         } else {
           return const HomePage();
         }

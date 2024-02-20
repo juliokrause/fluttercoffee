@@ -32,8 +32,9 @@ class _LoginPageState extends State<LoginPage> {
           email: _controllerEmail.text, password: _controllerPassword.text);
       successfulLogin();
     } on FirebaseAuthException catch (e) {
+      errorMessage = e.message;
       setState(() {
-        errorMessage = e.message;
+        
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(

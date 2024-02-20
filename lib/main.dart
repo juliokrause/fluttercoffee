@@ -5,11 +5,10 @@ import 'package:flutter_coffee/firebase_options.dart';
 import 'package:flutter_coffee/widget_tree.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized(); //this  HERE
-  await Firebase.initializeApp( options: DefaultFirebaseOptions.currentPlatform ); //this await HERE
+  await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform); //this await HERE
   runApp(const MyApp());
 }
 
@@ -23,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         textTheme: GoogleFonts.ebGaramondTextTheme(),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: true,
       ),
       home: const WidgetTree(), //this  HERE
