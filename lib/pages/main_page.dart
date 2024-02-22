@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_coffee/auth.dart';
 import 'package:flutter_coffee/customdata.dart';
@@ -12,6 +13,10 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  DatabaseReference dbRef = FirebaseDatabase.instance.ref();
+  DatabaseReference ref = FirebaseDatabase.instance.ref();
+  String? currentUser = FirebaseAuth.instance.currentUser?.uid.characters.toString();
+
   List userFinalCards = [
     CustomData(
         title: 'Update your user',
@@ -25,70 +30,17 @@ class _MainPageState extends State<MainPage> {
         title: 'Don\'t wait, caffeinate! Buy now',
         subtitle: 'Start your coffee jorney',
         iconsLead: Icons.coffee),
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-        
-        CustomData(
-        title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
-        iconsLead: Icons.coffee),
-
   ];
 
   final User? user = Auth().currentUser;
 
   Future<void> signOut() async {
     await Auth().signOut();
+  }
+
+  Future<Object?> getData() async {
+    DatabaseEvent event = await ref.once();
+    return event.snapshot.value;
   }
 
   Widget _title() {
@@ -145,17 +97,27 @@ class _MainPageState extends State<MainPage> {
               const SizedBox(
                 height: 8,
               ),
-              Expanded(
+              Flexible(
+                flex: 1,
                 child: ListView.builder(
                   itemCount: userFinalCards.length,
                   itemBuilder: (context, index) {
                     return usercard(
                         userFinalCards[index].title,
-                        userFinalCards[index].subtitle,
+                        userFinalCards[index].subtitle + getData().toString(),
                         userFinalCards[index].iconsLead);
                   },
                 ),
-              )
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Map data = {
+                      0: 'zecaurubuceta',
+                    };
+
+                    dbRef.push().child('path').set(data).then((value) {});
+                  },
+                  child: const Text('save dataaa'))
             ],
           ),
         ));

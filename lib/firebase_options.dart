@@ -3,7 +3,6 @@
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
-import 'package:flutter_coffee/secrets.dart';
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -50,15 +49,17 @@ class DefaultFirebaseOptions {
     messagingSenderId: '331109205796',
     projectId: 'fir-coffee-21c40',
     authDomain: 'fir-coffee-21c40.firebaseapp.com',
+    databaseURL: 'https://fir-coffee-21c40-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'fir-coffee-21c40.appspot.com',
     measurementId: 'G-WRMGNR69FS',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: apiKeyGeneral,
+    apiKey: 'AIzaSyAHIpoiyWbCPZl_3eD86KkqLMU_L_ENOxQ',
     appId: '1:331109205796:android:e64abb4506d6ca8fb115b1',
     messagingSenderId: '331109205796',
     projectId: 'fir-coffee-21c40',
+    databaseURL: 'https://fir-coffee-21c40-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'fir-coffee-21c40.appspot.com',
   );
 
@@ -67,6 +68,7 @@ class DefaultFirebaseOptions {
     appId: '1:331109205796:ios:c058d6d252f6b619b115b1',
     messagingSenderId: '331109205796',
     projectId: 'fir-coffee-21c40',
+    databaseURL: 'https://fir-coffee-21c40-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'fir-coffee-21c40.appspot.com',
     iosBundleId: 'com.juliokrause.flutterCoffee',
   );
@@ -76,6 +78,7 @@ class DefaultFirebaseOptions {
     appId: '1:331109205796:ios:31f1ad48b888b8fbb115b1',
     messagingSenderId: '331109205796',
     projectId: 'fir-coffee-21c40',
+    databaseURL: 'https://fir-coffee-21c40-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'fir-coffee-21c40.appspot.com',
     iosBundleId: 'com.juliokrause.flutterCoffee.RunnerTests',
   );
