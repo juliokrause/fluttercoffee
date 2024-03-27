@@ -14,8 +14,9 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   DatabaseReference dbRef = FirebaseDatabase.instance.ref();
-  DatabaseReference ref = FirebaseDatabase.instance.ref();
-  String? currentUser = FirebaseAuth.instance.currentUser?.uid.characters.toString();
+  DatabaseReference ref = FirebaseDatabase.instance.ref().child('count');
+  String? currentUser =
+      FirebaseAuth.instance.currentUser?.uid.characters.toString();
 
   List userFinalCards = [
     CustomData(
@@ -28,7 +29,7 @@ class _MainPageState extends State<MainPage> {
         iconsLead: Icons.share),
     CustomData(
         title: 'Don\'t wait, caffeinate! Buy now',
-        subtitle: 'Start your coffee jorney',
+        subtitle: 'Start your coffee journey',
         iconsLead: Icons.coffee),
   ];
 
@@ -38,9 +39,23 @@ class _MainPageState extends State<MainPage> {
     await Auth().signOut();
   }
 
+
+
   Future<Object?> getData() async {
-    DatabaseEvent event = await ref.once();
-    return event.snapshot.value;
+    final ref = FirebaseDatabase.instance.ref();
+    final snapshot = await ref.child('path').get();
+    
+    Object? zecal;
+    final String Flops = snapshot.child('-NtO9woXlEmNq7sCurTN').child('user').value.toString();
+      
+    
+
+    if (snapshot.exists) {
+      return snapshot.value;
+    } else {
+      print('NO DATA');
+    }
+    return null;
   }
 
   Widget _title() {
@@ -98,24 +113,28 @@ class _MainPageState extends State<MainPage> {
                 height: 8,
               ),
               Flexible(
-                flex: 1,
-                child: ListView.builder(
-                  itemCount: userFinalCards.length,
-                  itemBuilder: (context, index) {
-                    return usercard(
-                        userFinalCards[index].title,
-                        userFinalCards[index].subtitle + getData().toString(),
-                        userFinalCards[index].iconsLead);
-                  },
-                ),
-              ),
+                  flex: 1,
+                  child: FutureBuilder(
+                      future: getData(),
+                      builder: (context, snapshot) {
+                        return ListView.builder(
+                          itemCount: userFinalCards.length,
+                          itemBuilder: (context, index) {
+                            return usercard(
+                                userFinalCards[index].title,
+                                userFinalCards[index].subtitle +
+                                    snapshot.data.toString(),
+                                userFinalCards[index].iconsLead);
+                          },
+                        );
+                      })),
               ElevatedButton(
                   onPressed: () {
-                    Map data = {
-                      0: 'zecaurubuceta',
+                    Map<String, dynamic> data = {
+                      'user': 'FlopsiTrambs',
                     };
 
-                    dbRef.push().child('path').set(data).then((value) {});
+                    dbRef.child('path').push().set(data).then((value) {});
                   },
                   child: const Text('save dataaa'))
             ],
