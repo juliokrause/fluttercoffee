@@ -23,15 +23,15 @@ class _MainPageState extends State<MainPage> {
     CustomData(
         title: 'Update your user',
         subtitle: 'We see that your profile has some informations missing.',
-        iconLead: Icons.person, iconsLead: Icons.person),
+        iconsLead: Icons.person),
     CustomData(
         title: 'Share a cup, spread the perk',
         subtitle: 'Tell all your friend about this coffee day',
-        iconsLead: Icons.share, iconLead: Icons.share),
+        iconsLead: Icons.share),
     CustomData(
         title: 'Don\'t wait, caffeinate! Buy now',
         subtitle: 'Start your coffee journey',
-        iconsLead: Icons.coffee, iconLead: Icons.coffee),
+        iconsLead: Icons.coffee),
   ];
 
   final User? user = Auth().currentUser;
@@ -43,11 +43,8 @@ class _MainPageState extends State<MainPage> {
   Future<Object?> getData() async {
     final ref = FirebaseDatabase.instance.ref();
     FirebaseFirestore firestore = FirebaseFirestore.instance;
-    final snapshot = await ref.child('path').get();
 
-    Object? zecal;
-    final String Flops =
-        snapshot.child('-NtO9woXlEmNq7sCurTN').child('user').value.toString();
+  
 
     QuerySnapshot query = await firestore
         .collection('users')

@@ -5,6 +5,6 @@ class CustomData {
   String subtitle;
   IconData iconsLead;
 
-  CustomData({required this.title, required this.subtitle, required this.iconsLead, required iconLead});
+  CustomData({required this.title, required this.subtitle, required this.iconsLead});
 
 }
