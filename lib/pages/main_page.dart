@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -22,15 +23,15 @@ class _MainPageState extends State<MainPage> {
     CustomData(
         title: 'Update your user',
         subtitle: 'We see that your profile has some informations missing.',
-        iconsLead: Icons.person),
+        iconLead: Icons.person, iconsLead: Icons.person),
     CustomData(
         title: 'Share a cup, spread the perk',
         subtitle: 'Tell all your friend about this coffee day',
-        iconsLead: Icons.share),
+        iconsLead: Icons.share, iconLead: Icons.share),
     CustomData(
         title: 'Don\'t wait, caffeinate! Buy now',
         subtitle: 'Start your coffee journey',
-        iconsLead: Icons.coffee),
+        iconsLead: Icons.coffee, iconLead: Icons.coffee),
   ];
 
   final User? user = Auth().currentUser;
@@ -39,19 +40,23 @@ class _MainPageState extends State<MainPage> {
     await Auth().signOut();
   }
 
-
-
   Future<Object?> getData() async {
     final ref = FirebaseDatabase.instance.ref();
+    FirebaseFirestore firestore = FirebaseFirestore.instance;
     final snapshot = await ref.child('path').get();
-    
-    Object? zecal;
-    final String Flops = snapshot.child('-NtO9woXlEmNq7sCurTN').child('user').value.toString();
-      
-    
 
-    if (snapshot.exists) {
-      return snapshot.value;
+    Object? zecal;
+    final String Flops =
+        snapshot.child('-NtO9woXlEmNq7sCurTN').child('user').value.toString();
+
+    QuerySnapshot query = await firestore
+        .collection('users')
+        .where('email', isEqualTo: 'pintopequeno@gmail.com')
+        .limit(1)
+        .get();
+
+    if (query.docs.isNotEmpty) {
+      return query.docs.first.get('name');
     } else {
       print('NO DATA');
     }
